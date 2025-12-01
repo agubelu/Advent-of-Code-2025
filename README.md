@@ -19,5 +19,5 @@ To run: `cargo run --release [days...]`
 | Day 10 | |  |
 | Day 11 | |  |
 | Day 12 | |  |
-| **Total** |  |  |
+| **Total** | 2⭐ | 0.0702 ms |
 
