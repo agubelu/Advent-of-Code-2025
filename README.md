@@ -8,7 +8,7 @@ To run: `cargo run --release [days...]`
 | Day | Result | Time |
 |:---:|:---:|:---:|
 | [Day 01](https://adventofcode.com/2024/day/1) | ⭐⭐ | 0.0702 ms |
-| Day 02 | |  |
+| [Day 02](https://adventofcode.com/2024/day/2) | ⭐⭐ | 12.9717 ms |
 | Day 03 | |  |
 | Day 04 | |  |
 | Day 05 | |  |
@@ -19,5 +19,5 @@ To run: `cargo run --release [days...]`
 | Day 10 | |  |
 | Day 11 | |  |
 | Day 12 | |  |
-| **Total** | 2⭐ | 0.0702 ms |
+| **Total** | 4⭐ | 13.0419 ms |
 
