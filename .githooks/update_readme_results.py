@@ -1,8 +1,11 @@
 #! /usr/bin/env python
 # Automatically adds links to completed days and updates total counts
 
+from datetime import datetime
+
 total_stars = 0
 total_runtime = 0.0
+year = datetime.now().year
 
 def main():
     out_lines = []
@@ -37,7 +40,7 @@ def process_line(line: str) -> str:
 
 def make_link(day_str: str) -> str:
     day = int(day_str.split()[1])
-    return f'[{day_str}](https://adventofcode.com/2024/day/{day})'
+    return f'[{day_str}](https://adventofcode.com/{year}/day/{day})'
 
 if __name__ == '__main__':
     main()
