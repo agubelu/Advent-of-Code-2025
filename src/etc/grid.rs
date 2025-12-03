@@ -20,6 +20,11 @@ pub struct GridEnumerate<'a, T> {
     mat: &'a Grid<T>
 }
 
+pub struct GridRows<'a, T> {
+    i: usize,
+    mat: &'a Grid<T>
+}
+
 impl<T> Grid<T> {
     pub fn from_data(width: usize, height: usize, data: Vec<T>) -> Self {
         assert_eq!(data.len(), width * height);
@@ -61,6 +66,14 @@ impl<T> Grid<T> {
 
     pub fn enumerate(&self) -> GridEnumerate<T> {
         GridEnumerate { mat: self, iter: self.data.iter().enumerate() }
+    }
+
+    pub fn rows(&self) -> GridRows<T>{
+        GridRows { i: 0, mat: self }
+    }
+
+    pub fn raw_data(&self) -> &[T] {
+        &self.data
     }
 
     //////////////////////////////////////////////////////////////////////////
@@ -112,6 +125,18 @@ impl<'a, T> Iterator for GridEnumerate<'a, T> {
 
     fn next(&mut self) -> Option<Self::Item> {
         self.iter.next().map(|(i, x)| (self.mat.coords(i), x))
+    }
+}
+
+impl<'a, T> Iterator for GridRows<'a, T> {
+    type Item = &'a [T];
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.i < self.mat.height() {
+            self.i += 1;
+            return Some(&self.mat.data[self.mat.width() * (self.i-1) .. self.mat.width() * self.i]);
+        }
+        None
     }
 }
 
