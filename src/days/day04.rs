@@ -17,7 +17,7 @@ pub fn solve() -> SolutionPair {
 }
 
 fn can_be_removed(grid: &Grid<char>, point: Point) -> bool {
-    grid.get_or(point, '.') == '@' &&
+    grid[point] == '@' &&
     point.neighbors_diag()
          .into_iter()
          .map(|p| grid.get_or(p, '.'))
