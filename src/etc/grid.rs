@@ -98,6 +98,31 @@ impl<T: Copy> Grid<T> {
     pub fn get_or(&self, pos: Point, default: T) -> T {
         self.get(pos).copied().unwrap_or(default)
     }
+
+    pub fn rotate_right(&mut self) {
+        let mut data = vec![];
+
+        for x in 0..self.width() {
+            data.extend(self.get_col(x).into_iter().rev());
+        }
+
+        *self = Self { data, width: self.height(), height: self.width() };
+    }
+
+    pub fn rotate_left(&mut self) {
+        let mut data = vec![];
+
+        for x in (0..self.width()).rev() {
+            data.extend(self.get_col(x));
+        }
+
+        *self = Self { data, width: self.height(), height: self.width() };
+    }
+
+    pub fn get_col(&self, col: usize) -> Vec<T> {
+        assert!(col < self.width());
+        (0..self.height()).map(|i| self.data[i * self.width() + col]).collect()
+    }
 }
 
 impl<T: PartialEq> Grid<T> {
