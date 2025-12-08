@@ -13,11 +13,11 @@ To run: `cargo run --release [days...]`
 | [Day 04](https://adventofcode.com/2025/day/4) | ⭐⭐ | 0.8665 ms |
 | [Day 05](https://adventofcode.com/2025/day/5) | ⭐⭐ | 0.0696 ms |
 | [Day 06](https://adventofcode.com/2025/day/6) | ⭐⭐ | 0.1441 ms |
-| Day 07 | ⭐⭐ | 0.4493 ms |
-| Day 08 | |  |
+| [Day 07](https://adventofcode.com/2025/day/7) | ⭐⭐ | 0.4493 ms |
+| [Day 08](https://adventofcode.com/2025/day/8) | ⭐⭐ | 68.5401 ms |
 | Day 09 | |  |
 | Day 10 | |  |
 | Day 11 | |  |
 | Day 12 | |  |
-| **Total** | 12⭐ | 14.1904 ms |
+| **Total** | 16⭐ | 83.1798 ms |
 
