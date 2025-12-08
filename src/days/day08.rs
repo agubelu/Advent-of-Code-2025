@@ -11,7 +11,7 @@ use crate::{Solution, SolutionPair};
 
 ///////////////////////////////////////////////////////////////////////////////
 
-type PairDist = (usize, usize, i64);
+type PairDist = (usize, usize);
 struct Junction {
     x: i64,
     y: i64,
@@ -72,12 +72,10 @@ fn make_graph(dists: &[PairDist], n: usize) -> UnGraph<(), (), usize> {
 }
 
 fn compute_distances(boxes: &[Junction]) -> Vec<PairDist> {
-    boxes.iter()
-         .enumerate()
-         .tuple_combinations()
-         .map(|(a, b)| (a.0, b.0, distance(a.1, b.1)))
-         .sorted_by_key(|x| x.2)
-         .collect_vec()
+    (0..boxes.len())
+        .tuple_combinations()
+        .sorted_by_cached_key(|&(a, b)| distance(&boxes[a], &boxes[b]))
+        .collect_vec()
 }
 
 fn distance(p: &Junction, q: &Junction) -> i64 {
