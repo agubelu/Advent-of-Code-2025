@@ -75,9 +75,7 @@ fn make_rect_segments(p1: Point, p2: Point) -> Vec<Segment> {
 }
 
 fn rect_area((p1, p2): (&Point, &Point)) -> i64 {
-    let (big_x, small_x) = (max(p1.0, p2.0), min(p1.0, p2.0));
-    let (big_y, small_y) = (max(p1.1, p2.1), min(p1.1, p2.1));
-    (big_x - small_x + 1).abs() * (big_y - small_y + 1).abs()
+    ((p1.0 - p2.0).abs() + 1) * ((p1.1 - p2.1).abs() + 1)
 }
 
 fn rect_within_polygon(p1: Point, p2: Point, segs: &[Segment], poly: &Polygon<i64>) -> bool {
