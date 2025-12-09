@@ -1,7 +1,7 @@
 use std::fs::read_to_string;
 use rustc_hash::FxHashMap;
 use crate::{Solution, SolutionPair};
-use crate::etc::{Grid, Point};
+use crate::etc::Grid;
 
 ///////////////////////////////////////////////////////////////////////////////
 
