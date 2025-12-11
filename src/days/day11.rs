@@ -31,9 +31,9 @@ fn count_paths<'a>(ctx: &mut Ctx<'a>, from: &'a str, to: &'a str) -> u64 {
     let mut counts = vec![0; ctx.nodes.len()];
     counts[ctx.ids.get_id(from) as usize] = 1;
 
-    for u in &ctx.nodes {
-        for v in ctx.graph.neighbors_directed(*u, Direction::Outgoing) {
-            counts[v.index()] += counts[u.index()];
+    for l in &ctx.nodes {
+        for r in ctx.graph.neighbors_directed(*l, Direction::Outgoing) {
+            counts[r.index()] += counts[l.index()];
         }
     }
 
@@ -60,10 +60,9 @@ fn build_ctx(input: &str) -> Ctx {
     for line in input.lines() {
         let (in_node, outs) = line.split_once(": ").unwrap();
         let in_id = ids.get_id(in_node);
-        for out_node in outs.split(' ') {
-            let out_id = ids.get_id(out_node);
-            edges.push((in_id, out_id, ()));
-        }
+        edges.extend(outs.split(' ').map(
+            |out| (in_id, ids.get_id(out), ())
+        ));
     }
 
     let graph = DiGraph::from_edges(&edges);
