@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use std::fmt::Display;
 use std::ops::{Add, AddAssign, Sub, SubAssign, Mul, MulAssign, Neg};
 use num_traits::PrimInt;

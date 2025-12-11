@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use std::iter::Enumerate;
 use std::fmt::Display;
 use std::ops::{Index, IndexMut};
