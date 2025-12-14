@@ -18,6 +18,6 @@ To run: `cargo run --release [days...]`
 | [Day 09](https://adventofcode.com/2025/day/9) | ⭐⭐ | 24.7664 ms |
 | [Day 10](https://adventofcode.com/2025/day/10) | ⭐⭐ | 14.0333 ms |
 | [Day 11](https://adventofcode.com/2025/day/11) | ⭐⭐ | 0.1190 ms |
-| Day 12 | |  |
-| **Total** | 22⭐ | 122.0985 ms |
+| [Day 12](https://adventofcode.com/2025/day/12) | ⭐⭐ | 0.2551 ms |
+| **Total** | 24⭐ | 122.3536 ms |
 
